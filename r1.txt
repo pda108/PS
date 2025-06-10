@@ -1,0 +1,32 @@
+#include<iostream.h>
+#include<conio.h>
+ #include <math.h>
+ #include <complex.h) 
+Void main() 
+{
+Complex Vs;
+float Pi 3.1428, cs, vr, m, loss, ir, a,pf,reg,r,xl,eff;
+clrscr();
+cout <<"Enter the receiving end voltage\n";
+cin>>vr; 
+Cout <<"enter the lood Power and load power factor\n"; 
+Cin >> P >>Pf;
+Cout <<"enter Resistance & reactance value in ohms\n";
+cin>>r>>xl;
+Complex z = complex (r,xl);
+cs=acos(pf);
+ir=p/(vr*pf);
+Cs=cs*180/pi;
+a=ir*cos((cs*pi/180);
+m =ir*sin(cs*pi/180);
+complex is=complex(a,m); 
+Cout << "\n sending end current="<<is;
+Vs=vr + (is*z);
+Cout <<"\n sending end Power factor="<<arg(vs)-arg(is);
+loss = abs (is*is*r);
+eff= P/(P+loss)*100;
+reg = (abs(vs)-abs(vr))/abs(vr)* 100; 
+cout<<"\n % Regulation = "<<reg;
+getch(); 
+}
+  

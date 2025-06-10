@@ -1,0 +1,30 @@
+clc;
+clear;
+p=input('enter power in mw\n');
+pf=input('enter power factor\n');
+Vt=input('enter line to line voltage in kv\n');
+Xd=input('enter xd in ohm\n');
+Xq=input('enter xq in ohm\n');
+Vt_ph=vt*1000/sqrt(3);
+pf_a=acosh(pf);
+q=p*tan(pf_a);
+i=(p-j*q)*1e6/(3*vt_ph);
+delta=0:1:180;
+delta_rad=delta*(pi/180);
+if xd~=xq
+eq=vt_ph+(j*i*xq);
+id_mag=abs(i)*sin(angle(eq)-angle(i));
+e_emf=abs(eq)+((xd-xq)*id_mag);
+e_emf=ef_mag;
+fprintf('\n excitation emf=%f',e_emf);
+reg=(ef_mag-abs(vt_ph))*100/abs(vt_ph);
+fprintf('\n percentage regulation=%f',reg);
+pp=ef_mag*vt_ph*sin(delta_rad)/xd;
+rp=vt_ph^2*(xd-xq)*sin(2*delta_rad)/(2*xd*xq);
+net_rp=3*rp/1e6;
+plot(delta,net_p_sal);
+xlabel('delta(deg)');
+ylabel('three phase power(mw)');
+title('plot power angle cuvre for salient synchronous machine');
+end
+grid

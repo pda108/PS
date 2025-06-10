@@ -1,0 +1,26 @@
+clc;
+clear;
+n=input('enter the number of nodes\n');
+b=input('enter the number of buses\n');
+e=input('enter the number of elements\n');
+p=input('enter the from bus number one by one\n');
+q=input('enter the to bus number one by one\n');
+z=input('enter the impedence one by one\n');
+zpri=zeros(e,e);
+ybus=zeros(b,b);
+acap=zeros(e,n);
+fori=1:1:e
+zpri(i.i)=z(i,1);
+end
+ypri=inv(zpri);
+for i=1:1:e
+r=p(j,1);
+s=q(j,1);
+acap(j,r)=1;
+acap(i,s)-1;
+end
+acap;
+acap(:,1)=[];
+a=acap;
+at=a';
+ybus=at*ypri*a

@@ -1,0 +1,39 @@
+clc;
+clear;
+Z12=input('enter the value of impedence connected between bus 1-2\n');
+Z13=input('enter the value of impedence connected between bus 1-3\n');
+Z23=input('enter the value of impedence connected between bus 2-3\n');
+v1=input('enter the value of bus 1 voltage in rectangular form\n');
+v2=input('enter the value of bus 2 voltage in rectangular form\n');
+v3=input('enter the value of bus 3 voltage in rectangular form\n');
+y12=1/z12;
+y13=1/z13;
+y23=1/z23;
+fprintf('line currents\n');
+I12=y12*(v1-v2)
+I21=-I12
+I13=y13*(v1-v3)
+I31=-I13
+I23=y23*(v2-v3)
+I23=-I23
+fprintf('line flows\n');
+s12=v1*conj(I12)
+s21=v2*conj(I21)
+s13=v1*conj(I13)
+s31=v3*conj(I31)
+s23=v2*conj(I23)
+s32=v3*conj(I32)
+fprintf('line losses\n');
+sl12=s12+s21
+sl13=s13+s31
+sl23=s23+s32
+fprintf('bus power\n');
+s1=s12+s13
+s2=s21+s23
+s3=s31+s32
+fprintf('bus currents\n');
+I1=conj[s1/v1]
+I2=conj[s2/v2]
+I3=conj[s3/v3]
+
+

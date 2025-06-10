@@ -1,0 +1,27 @@
+clc;
+clear;
+p=input('enter power in mw\n');
+pf=input('enter power factor\n');
+Vt=input('enter line to line voltage in kv\n');
+Xd=input('enter xd in ohm\n');
+Xq=input('enter xq in ohm\n');
+Vt_ph=vt*1000/sqrt(3);
+pf_a=acosh(pf);
+q=p*tan(pf_a);
+i=(p-j*q)*1e6/(3*vt_ph);
+delta=0:1:180;
+delta_rad=delta*(pi/180);
+if xd==xq
+ef=vt_ph+(j*i*xd);
+e_emf=abs(ef);
+fprintf('\n excitation emf=%f',e_emf);
+reg=(abs(ef)-abs(vt_ph)*100/abs(vt_ph);
+fprintf('\n percentage regulation=%f',reg);
+p_non=abs(ef)*vt_ph*sin(delta_rad)/xd;
+n_power=3*p_non/1e6;
+plot(delta,n_power);
+xlabel('delta(deg)');
+ylabel('three phase power (mw)');
+title('plot power angle curve for non salient pole synchronous machine');
+end
+grid

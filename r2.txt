@@ -1,0 +1,29 @@
+#include<iostream.h>
+#include<math.h>
+#include<complex.h>
+void main()
+{
+complex A,B,C,D,Z,Y,E;
+float l,r,xl,s;
+clrscr();
+cout<<"enter resistance value in ohms/km\n";
+cin>>r;
+cout<<"enter reactance value in ohms/km\n";
+cin>>xl;
+cout<<"enter suspatance value in mho/km\n";
+cin>>s;
+cout<<"enter the lenth of the transmission line\n";
+cin>>l;
+Z=complex(r*l,xl*l);
+Y=complex(0,s*l);
+A=D=cosh(sqrt(y*z));
+B=sqrt(z/y)*sinh(sqrt(y*z));
+C=sqrt(y/z)*sinh(sqrt(y*z));
+E=A*D-B*C;
+cout<<"\n A="<<A;
+cout<<"\n B="<<B;
+cout<<"\n C="<<C;
+cout<<"\n D="<<D;
+cout<<"\n E="<<E;
+getch();
+}

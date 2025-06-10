@@ -1,0 +1,25 @@
+clc;
+clear;
+b=input('enter the number of buses\n');
+e=input('enter the number of elements\n');
+p=input('enter the from bus number one by one\n');
+q=input('enter the to bus number one by one\n');
+z=input('enter the line to line impedence one by one\n');
+h=input('enter the half line charging admittance\n');
+y=1./z;
+fori=1:1:b
+forj=1:1:e
+r=p(j,1);
+s=q(j,1);
+if(r==i)|(s==i)
+ybus(i,i)=ybus(i,i)+y(i,1)+h(j,1);
+end
+end
+end
+fork=1:1:e
+m=p(k,1);
+n=q(k,1);
+ybus(m,n)=y(k,1);
+ybus(n,m)=-ybus(m,n);
+end
+ybus
